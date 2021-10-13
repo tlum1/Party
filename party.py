@@ -29,6 +29,12 @@ with open('party.txt') as f:
     teams, teams_count = (count_teams(0, 3, teams, teams_count))
     #считаем пати для групп из 2 и 3 человек
     teams, teams_count = (count_teams(1, 2, teams, teams_count))
+    
+    # Формируем пати для групп из 1, 1 и 3 человек
+    if teams[0] // 2 > 0:
+        teams[1] += teams[0] // 2
+        teams[0] -= teams[1] * 2
+        teams, teams_count = (count_teams(1, 2, teams, teams_count))
 
     #формируем команды из пати из одного человека
     teams_count+= teams[0]//5
